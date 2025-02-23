@@ -299,7 +299,7 @@ div.imagedesc{
 		<li>Possibilità di impostare la configurazione iniziale della griglia</li>
 		<li>Un pulsante "Start" che permetta di far partire la simulazione</li>
 		<li>Un pulsante "Stop" che permetta di mettere in pausa la simulazione</li>
-		<li>Un pulsante "Exit" che permetta di uscire dall'applicazione</li>
+		<li>Un pulsante "Exit" che permetta di uscire dall'applicazione e terminare la simulazione</li>
 	</ul>
 	<br>
 	Funzionalità di output:<br>
@@ -315,7 +315,7 @@ div.imagedesc{
 	Punti aperti:<br>
 	<ul>
 		<li>Una volta dopo aver premuto il pulsante stop la simulazione potrà riprendere? E se si, Utilizzando nuovamente il pulsante start?</li>
-		<li>Il pulsante exit dovrà uscire anche dalla pagina o semplicemente fermerà in maniera definitiva la simulazione?</li>
+		<li>Il pulsante exit dovrà uscire anche dalla pagina o semplicemente fermerà in maniera definitiva la simulazione? In ogni caso, la simulazione dovrà essere resettata?</li>
 	</ul>
 </div>
 
@@ -323,14 +323,32 @@ div.imagedesc{
 
 <h2>Problem analysis</h2>
 <div class="remark">
-	
+	Dovrà essere realizzata un'interfaccia grafica in html per l'applicazione in java. Perciò verranno potranno essere utilizzate delle websocket per la comunicazione tra client (pagina html)
+	e server (applicazione java). Sarà quindi necessaria una comunicazione tra i due attraverso opportuni moduli (client websocket in js e server websocket in java) che comunicheranno attraverso la rete.
+	Le interazioni di input previste (attraverso la comunicazione appena descritta) saranno:<br>
+	<ul>
+		<li><b>Pressione di una cella della griglia</b>: cambiamento dello stato della cella corrispondente della griglia</li>
+		<li><b>Pressione del pulsante "start"</b>: modifica dello stato del controller java e inizio della simulazione</li>
+		<li><b>Pressione del pulsante "stop"</b>: modifica dello stato del controller java e interruzione della simulazione</li>
+		<li><b>Pressione del pulsante "exit"</b>: modifica dello stato del controller java e terminazione della simulazione con reset</li>
+	</ul>
+	<br>
+	Per quanto riguarda l'output, una volta avviata la simulazione, questa avrà un comportamento ciclico, con un aggiornamento periodico automatico dello stato della griglia.
+	In caso di pausa della simulazione l'aggiornamento verrà sospeso, salvo riprendere in caso di nuova pressione del pulsante "start". Perciò, a ogni agiornamento della griglia,
+	dovrà essere comunicato, sempre attraverso websocket, dal server java la nuova configurazione della griglia alla gui client.
+	<br><br>
+	Di seguito sono mostrate le principali interazioni in modo più schematico:<br>
 </div>
 
 <h2>Test plans</h2> 
 
 
 <h2>Project</h2> 
- 
+<div class="remark">
+	Di seguito è riportato un possibile schema di progetto che riporta i moduli e le dipendenze tra loro:<br>
+
+	Il tempo previsto per l'implementazione sarà di circa 3h.
+</div>
  
 
 <h2>Testing</h2> 
