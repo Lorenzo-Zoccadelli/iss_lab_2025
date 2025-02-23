@@ -323,19 +323,19 @@ div.imagedesc{
 
 <h2>Problem analysis</h2>
 <div class="remark">
-	Dovrà essere realizzata un'interfaccia grafica in html per l'applicazione in java. Perciò verranno potranno essere utilizzate delle websocket per la comunicazione tra client (pagina html)
-	e server (applicazione java). Sarà quindi necessaria una comunicazione tra i due attraverso opportuni moduli (client websocket in js e server websocket in java) che comunicheranno attraverso la rete.
+	Dovrà essere realizzata un'interfaccia grafica in html per l'applicazione in java. Perciò verrà utilizzato un canale di comunicazione per lo scambio di informazioni tra client (pagina html)
+	e server (applicazione java). Sarà quindi necessaria l'interazione tra i due attraverso opportuni moduli che comunicheranno presumibilmente attraverso la rete.
 	Le interazioni di input previste (attraverso la comunicazione appena descritta) saranno:<br>
 	<ul>
 		<li><b>Pressione di una cella della griglia</b>: cambiamento dello stato della cella corrispondente della griglia</li>
 		<li><b>Pressione del pulsante "start"</b>: modifica dello stato del controller java e inizio della simulazione</li>
 		<li><b>Pressione del pulsante "stop"</b>: modifica dello stato del controller java e interruzione della simulazione</li>
-		<li><b>Pressione del pulsante "exit"</b>: modifica dello stato del controller java e terminazione della simulazione con reset</li>
+		<li><b>Pressione del pulsante "exit"</b>: modifica dello stato del controller java e terminazione della simulazione con reset e chiusura del canale di comunicazione</li>
 	</ul>
 	<br>
 	Per quanto riguarda l'output, una volta avviata la simulazione, questa avrà un comportamento ciclico, con un aggiornamento periodico automatico dello stato della griglia.
 	In caso di pausa della simulazione l'aggiornamento verrà sospeso, salvo riprendere in caso di nuova pressione del pulsante "start". Perciò, a ogni agiornamento della griglia,
-	dovrà essere comunicato, sempre attraverso websocket, dal server java la nuova configurazione della griglia alla gui client.
+	dovrà essere comunicato dal server java la nuova configurazione della griglia alla gui client.
 	<br><br>
 	Di seguito sono mostrate le principali interazioni in modo più schematico:<br>
 </div>
@@ -345,7 +345,9 @@ div.imagedesc{
 
 <h2>Project</h2> 
 <div class="remark">
-	Di seguito è riportato un possibile schema di progetto che riporta i moduli e le dipendenze tra loro:<br>
+	Di seguito è riportato un possibile schema di progetto che mostra i moduli e le dipendenze tra loro. Per la comunicazione viene scelto di utilizzare delle websocket, le quali porteranno
+	alla necessità di moduli dedicati alle interazioni di questo tipo sia lato client sia lato server (i precedenti "canale client" e "canale server", sono da intendersi come i moduli per 
+	le interfaccie di input/output che implementano le websocket)<br>
 
 	Il tempo previsto per l'implementazione sarà di circa 3h.
 </div>
