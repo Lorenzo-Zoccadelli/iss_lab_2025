@@ -195,6 +195,20 @@ div.imagedesc{
 	width: 85%;
 	margin: auto;
 }
+
+div.img-container{
+	display: flex;
+	flex-direction: column;
+	align-items: cenrter;
+	justify-content: center;
+	gap: 20px;
+
+	padding-left: 20%;
+	padding-right: 20%;
+
+}
+
+
 </style>
     
  
@@ -256,7 +270,7 @@ div.imagedesc{
 	<col style="width: 70%" />
 	</colgroup>
 	<tbody>
-	<tr class="row-odd"><td><a class="reference internal image-reference" href="conwaygui.jpg"><img alt="conwaygui.jpg" class="align-left" src="conwaygui.jpg" style="width: 100%;" /></a>
+	<tr class="row-odd"><td><a class="reference internal image-reference" href="imgs/conwaygui.jpg"><img alt="imgs/conwaygui.jpg" class="align-left" src="imgs/conwaygui.jpg" style="width: 100%;" /></a>
 	</td>
 	<td><p>La pagina HTML svolge il ruolo di:</p>
 	<ul class="simple">
@@ -338,6 +352,16 @@ div.imagedesc{
 	dovrà essere comunicato dal server java la nuova configurazione della griglia alla gui client.
 	<br><br>
 	Di seguito sono mostrate le principali interazioni in modo più schematico:<br>
+	<div class="img-container">
+		<img src="imgs/seq1.png"><br>
+		<img src="imgs/seq2.png"><br>
+		<img src="imgs/seq3.png"><br>
+	</div>
+
+	Il modulo gui sarà legato alla gestione dell'interfaccia grafica e dei dispositivi di input e output 
+	lato client. I moduli canale client e server avranno la responsabilità di garantire la comunicazione 
+	tra le due porzioni del software
+	
 </div>
 
 <h2>Test plans</h2> 
@@ -349,6 +373,27 @@ div.imagedesc{
 	alla necessità di moduli dedicati alle interazioni di questo tipo sia lato client sia lato server (i precedenti "canale client" e "canale server", sono da intendersi come i moduli per 
 	le interfaccie di input/output che implementano le websocket)<br>
 
+	<img src="imgs/project.png"><br>
+
+	Life e LifeController sono le classi java già presenti che svolgono il ruolo di modello e controller 
+	della logica del gioco. IOutDev è l'interfaccia di output che sarà utilizzata dal controller e che 
+	verrà implementata dall'opportuna classe che realizzerà i meccanismi di comunicazione con il client
+	tramite websocket.
+	<br>
+	Lato client, sarà presente un file gui.html che conterrà la disposizione degli elementi grafici 
+	della pagina predisponendo i pulsanti e la griglia. Questo utilizzerà i file iomap.js per legare 
+	gli eventi dei componenti grafici legati alla griglia e il file controls.js per legare gli eventi
+	inerenti ai pulsanti alle azioni da richiedere al server.
+	<br>
+	Questi ultimi due file faranno uso del file commsocket.js che svolgerà il ruolo di libreria per
+	la comunicazione con il server attraverso websocket.
+	<br>
+	Nello specifico, iomap.js dovrà registrare una funzione che eseguirà l'update della griglia in modo 
+	che possa essere invocata da commsocket.js in caso di ricezione dell'output. 
+	
+	Per quanto riguarda l'input, entrambi i file richiederanno l'invio dei dati di input a commsocket.js
+	in seguito all'azione dell'utente sulla gui. 
+	<br><br>
 	Il tempo previsto per l'implementazione sarà di circa 3h.
 </div>
  
@@ -377,7 +422,7 @@ div.imagedesc{
 <div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
 By Lorenzo Zoccadelli email: lorenzo.zoccadelli@studio.unibo.it, 
 <!-- <img src="./img/mbot-S.jpg" alt="mbot" width="15%" height="15%"> -->
-<img src="./profile_img.jpeg" alt="emiglio" width="15%" height="15%"><br>
+<img src="./imgs/profile_img.jpeg" alt="emiglio" width="15%" height="15%"><br>
 GIT repo: https://github.com/Lorenzo-Zoccadelli/iss_lab_2025.git 
 </div> 
 </body>
