@@ -239,31 +239,84 @@ div.imagedesc{
 
 <div class="body"> 
 <h2>Introduction</h2>
- 
+<div class="remark">
+	Si vuole fare il refactoring dell'applicazione conway (senza gui) in modo da esprimere meglio le entità Cell e Grid e in modo da
+	disaccoppiare meglio l'output device dal controller.
+</div>
  
 <h2>Requirements</h2>
 
  
 <div class="remark">
-Copy here the EXACT text fiven by the customer.
+	Il sistema realizzato funziona, ma non ha una rappresentazione esplicita della cella, che costuisce l'elemento fondamentale del gioco.<br>
+	Infatti il sistema definisce, in Life.java, una matrice grid di interi che non fa riferimento alla cella, ma a un valore intero, che deve essere vincolato 
+	(senza alcun controllo in merito) ai valori 0 (cella morta) e 1 (cella viva).<br>
+	Manca dunque una opportuna modellazione delle entità principali del dominio applicativo`.
+	<br><br>
+	Il lettore è invitato:
+	<ul>
+		<li>a introdurre una classe Cell per rappresentare il concetto di cella e a modificare il codice in modo da usare questa classe</li>
+		<li>ad analizzare la problematica di quale componente deve avere la responsabilità di visualizzare lo stato di una cella</li>
+	</ul>
+
 </div>
 
  
 
 <h2>Requirement analysis</h2>
- 
+<div class="remark">
+	Sarà necessario eseguire le seguenti modifiche al codice già esistente:
+	<ul>
+		<li>Aggiunta di una modellazione per le Celle e per la Griglia</li>
+		<li>Definire in modo più dettagliato e ragionato quale/i componenti avranno la responsabilità di mostrare in output lo stato del gioco</li>
+	</ul>
+
+</div>
 
  
 
 <h2>Problem analysis</h2>
- 
+<div class="remark">
+	Analizzando il problema a partire dal codice già esistente si riscontrano le seguenti criticità e le seguenti possibili azioni:
+	<h4>Rappresentazione della griglia in Life come matrice di interi</h4>
+	Questo porta a vari problemi:
+	<ul>
+		<li>
+			Assenza di un entità che abbia la completa responsabilità per quanto riguarda le sengole celle e la griglia come aggregato di celle -> Possibilità
+			di aggiungere delle entità/moduli che permettano di gestire queste caratteristiche in modo dedicato
+		</li>
+		<li>Possibilità che la matrice assuma valori interi non ammissibili (diversi da 0 e 1) -> Possibilità di limitare questi valori a un certo sottoinsieme</li>
+	</ul>
+
+	<h4>Gestione dell'output della matrice divisa tra dispositivo di output e controller</h4>
+	Questo porta a vari problemi:
+	<ul>
+		<li>
+			Il controller e le classi che modellano il gioco dovrebbero essere agniostiche rispetto alla metodologia di rappresentazione dell'output (in modo che
+			questo possa essere modificato in modo semplice) -> possibilità di refactoring in modo che tutta la logica di output sia racchiusa solamente nella 
+			classe che rappresenta il dispositivo di output mantenendo l'interfaccia già presente (eventualmente modificandola)
+		</li>
+	</ul>
+	La risoluzione di questi problemi porterebbe a un software più estendibile e che permetterebbe a fronte di modifiche a dover cambiare il sistema in modo limitato
+</div> 
+
 
 <h2>Test plans</h2> 
 
 
 <h2>Project</h2> 
- 
- 
+Di seguito sono elencate alcune possibili soluzioni adottate per ovviare ai problemi sopra citati e un diagramma illustrativo delle dipendenze tra i vari moduli/classi del sistema
+<ul>
+	<li>Introduzione di una classe Cell e una classe Grid che andranno a modellare la griglia del gioco</li>
+	<li>Introduzione di una classe enumerativa CellValue in modo che le celle possano assumere solo valori ben definiti</li>
+	<li>Modifica dell'interfaccia IOutDev e della classe ConwayOutput in modo che queste possano stampare la matrice a partire da un oggetto Life in modo autonomo</li>
+	<li>
+		Eliminazione di tutta la logica di output che risiede nella classe LifeController e Life in modo che solamente la classe LifeController possa richiedere i servizi
+		di output al dispositivo di cui avrà un riferimento. 
+	</li>
+</ul>
+
+<img src="imgs/schema_classi.png">
 
 <h2>Testing</h2> 
  
@@ -287,10 +340,10 @@ Copy here the EXACT text fiven by the customer.
 </div>  
 
 <div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
-By studentName email: student@studio.unibo.it, 
+By Lorenzo Zoccadelli email: lorenzo.zoccadelli@studio.unibo.it, 
 <!-- <img src="./img/mbot-S.jpg" alt="mbot" width="15%" height="15%"> -->
-<img src="./img/emiglio.png" alt="emiglio" width="15%" height="15%">
-GIT repo: https://github.com/... 
+<img src="./imgs/profile.jpeg" alt="profile" width="15%" height="15%">
+GIT repo: https://github.com/Lorenzo-Zoccadelli/iss_lab_2025.git
 </div> 
 </body>
 </html>

@@ -1,5 +1,8 @@
 package conway;
 
 public interface IOutDev {
-	public void displayCell(String msg);
+	
+	public void displaySection(String sectionName);
+	
+	public void displayCells(Life life);
 }

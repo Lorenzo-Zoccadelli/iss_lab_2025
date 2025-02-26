@@ -22,7 +22,7 @@ public class LifeController {
     
     //Called by ConwayInputMock
     public void start(){
-		System.out.println("---------Initial----------");
+    	outdev.displaySection("Initial");
 		//La griglia è visualizzata con un ciclo
 		displayGrid();
 		play(); 		   	
@@ -33,10 +33,10 @@ public class LifeController {
 		for( int i=1;i<=5;i++){
 			try {
 				TimeUnit.MILLISECONDS.sleep(generationTime);
-				System.out.println("---------Epoch --- "+i );
-				life.computeNextGen( outdev );
+				outdev.displaySection("Epoch "+i);
+				life.computeNextGen();
 				//La griglia è visualizzata  'on the fly'
-				//displayGrid();
+				displayGrid();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -44,16 +44,7 @@ public class LifeController {
     }
 
 	public void displayGrid() {
-		for (int i = 0; i < life.getRowsNum(); i++) {
-			for (int j = 0; j < life.getColsNum(); j++) {
-				if (life.getCellState(i,j) == 0) {
-					outdev.displayCell("0");
-                } else {
-                	outdev.displayCell("1");
-                }				 
-			}
-			outdev.displayCell("\n");
-		}
+		outdev.displayCells(life);
 	}
 
 }
