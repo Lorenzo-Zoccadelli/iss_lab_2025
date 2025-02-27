@@ -27,10 +27,6 @@ public class Life {
         return cols;
     }
 
-    public Grid getGrid() {
-    	return grid;
-    }
-    
     protected void  createGrids() {
     	grid = new Grid(rows, cols);
         nextGrid = new Grid(rows, cols);   

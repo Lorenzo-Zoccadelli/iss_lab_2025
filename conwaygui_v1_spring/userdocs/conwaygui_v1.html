@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"crossorigin="anonymous"></script> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/templateISS.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/main.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/navbar.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/table.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/code.css">
+        <!-- <script type="text/javascript" src="./commons/resources/scripts/myScripts.js"></script> -->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+
+div.img-container{
+	display: flex;
+	flex-direction: column;
+	align-items: cenrter;
+	justify-content: center;
+	gap: 20px;
+
+	padding-left: 20%;
+	padding-right: 20%;
+
+}
+
+
+</style>
+    
+ 
+   
+</head>
+	
+		
+  
+
+
+   
+<title>TemplateToFill</title></head>
+    
+<!--
+	<body onload="loadNav();">
+		<div id="openButton" class="openButton" onclick="openNav(true)">&#9776; Menu</div>
+		<div id="sidenav" class="sidenav">
+			<a class="closeButton" href="javascript:void(0)" onclick="closeNav(true)">&times;</a>
+			<a href=".README.html">ReadMe</a>
+			<a class="sprint" href="../../../Sprint0/Codice/userDocs/Cold%20Storage%20Service%20-%20Natali%20V3.html">Sprint0</a>
+			<a class="sprint" href="../../../Sprint1.0/Codice/userDocs/Sprint%201.0%20-%20V3.html">Sprint1.0</a>
+			<a class="sprint" href="../../../Sprint1.1/Codice/userDocs/Sprint%201.1%20-%20V3.html">Sprint1.1</a>
+			<a id="currentSprint" class="sprint" href="#">&#8211;&#8212; Sprint2 &#8212;&#8211;</a>
+			<div class="sidenavSection">
+				<a href="#Goal Sprint 2">Goal Sprint 2</a>
+				<a href="#Requisiti">Requisiti</a>
+				<a href="#Analisi dei Requisiti">Analisi dei Requisiti</a>
+				<a href="#Analisi del Problema">Analisi del Problema</a>
+				<a href="#Test Plan">Test Plan</a>
+				<a href="#Progettazione">Progettazione</a>
+				<a href="#Deployment">Deployment</a>
+			</div>
+			<p class="separator">&mdash;&mdash;&mdash;&ndash;&ndash;&mdash;&mdash;&mdash;</p>
+			<a class="sprint" href="../../../Sprint3/Codice/userDoc/Sprint%203.html">Sprint3</a>
+			<bottom-spacer/>
+		</div>
+-->
+<body>
+<div id="top">
+<h1>LABORATORIO DI INGEGNERIA DEI SISTEMI SOFTWARE <font size="5"></font> </h1>
+</div>  
+
+<div class="body"> 
+<h2>Introduction</h2>
+<div class="remark">
+	Si vuole realizzare una GUI per il gioco "Conway's Game of Life" già realizzato in java.
+</div>
+
+<h2>Organizzazione del processo di sviluppo</h2>
+<div class="remark">
+	<h3>conwaygui: un processo di sviluppo<a class="headerlink" href="#conwaygui-un-processo-di-sviluppo" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Definizione del software relativo al core-business applicativo (con Cell e Grid)  e suo testing</p></li>
+<li><p>Definizione di un progetto SpringBoot partendo da <a class="reference internal" href="SpringBootInit25.html#primi-passi-con-springboot"><span class="std std-ref">Primi passi con SpringBoot</span></a></p></li>
+<li><p>Directory <span class="remark">userDocs</span> con <strong>diario di bordo</strong> <code class="docutils literal notranslate"><span class="pre">conwaygui_v0.html</span></code>  da <span class="slide2">Aggiornare incrementalmente</span></p></li>
+<li><p><span class="slide3">Innesto esplicito</span> nel package <code class="docutils literal notranslate"><span class="pre">conway</span></code> (o implicito, con un file jar) del core-bsuiness Java nel workspace del progetto</p></li>
+<li><p>Definizione del Controller della GUI <a class="reference external" href="../../../../conwaygui/src/main/java/unibo/disi/conwaygui/controller/ConwayGuiControllerLifeLocal.java">ConwayGuiControllerLifeLocal</a> con funzione <span class="remark">getserverip</span>
+che restituisce l’IP del server</p></li>
+<li><p>Definizione della pagina HTML <a class="reference internal" href="#id1"><span class="std std-ref">guipage.html</span></a></p></li>
+<li><p>Definizione del codice JavaScript da inserire nella pagina HTML per la costruzione della mappa</p></li>
+<li><p>Definizione lato client (<a class="reference internal" href="#id2"><span class="std std-ref">commsocket.js</span></a>) e lato server (<a class="reference external" href="file:///C:/Didattica2025/qak25/conwaygui/src/main/java/unibo/disi/conwaygui/ws/WSConwayguiLifeLocal.java">WSConwayguiLifeLocal</a>)
+della interazione via WebSocket</p></li>
+<li><p>Definizione del dispositivo <a class="reference external" href="file:///C:/Didattica2025/qak25/conwaygui/src/main/java/conway/devices/ConwayOutput.java">ConwayOutput</a> che invia dati via WebSocket</p></li>
+</ol>
+<p>Il codice Java inserito come parte integrante del servizio:</p>
+<ul class="simple">
+<li><p>ha la stessa struttura introdotta in <a class="reference internal" href="#conwaylife25-in-java"><span class="std std-ref">ConwayLife25 in Java</span></a></p></li>
+<li><p>la classe <a class="reference external" href="../../../../conwaygui/src/main/java/conway/Life.java">Life</a> non ha il compito di visualizzare le celle, compito assunto dal <a class="reference external" href="../../../../conwaygui/src/main/java/unibo/disi/conwaygui/controller/ConwayGuiControllerLifeLocal.java">ConwayGuiControllerLifeLocal</a></p></li>
+<li><p>elimina ogni dispositivo di input, in quanto i comandi-utente vengono inviati tramite WebSocket</p></li>
+<li><p>definisce un dispositivo di output <code class="docutils literal notranslate"><span class="pre">ConwayOutput</span></code> che implementa <a class="reference internal" href="#ioutdev-interface"><span class="std std-ref">IOutDev interface</span></a> inviando messaggi
+alla pagina HTML tramite WebSocket</p></li>
+</ul>
+
+</div>
+ 
+<h2>Requirements</h2>
+
+ 
+<div class="remark">
+	 Realizzazione di una pagina HTML che funga da dispostivo di input-ouput 
+	 evoluto per l’applicazione ConwayLife25 in Java
+	
+</div>
+
+ 
+
+<h2>Requirement analysis</h2>
+<div class="remark">
+
+</div>
+
+ 
+
+<h2>Problem analysis</h2>
+<div class="remark">
+	<p><span class="slide1">Una prima analisi del problema</span></p>
+<section id="conwaygui-analisi-del-problema">
+<h3>conwaygui: analisi del problema<a class="headerlink" href="#conwaygui-analisi-del-problema" title="Link to this heading">¶</a></h3>
+<p>Per affrontare l’analisi del problema, introduciamo opportune domande. Ad esempio:</p>
+<p>Il requisito indica che la GUI deve essere una pagina <code class="docutils literal notranslate"><span class="pre">HTML</span></code> che dovrebbe essere fornita da un
+Web-server e che quindi potrebbe essere aperta  da <strong>più utenti contemporaneamente</strong>.</p>
+<ol class="arabic simple">
+<li><p><span class="slidekp">chi comanda?</span>. Nel caso di più utenti,
+questi potranno vedere la stessa griglia o ognuno vedrà la sua griglia?</p>
+<ul class="simple">
+<li><p>il committente precisa che <strong>tutti gli utenti potranno vedere la evoluzione della stessa griglia</strong>,
+ma solo uno potrà
+inviare comandi di gestione del gioco. Questo utente privilegiato (detto <span class="slide3">owner</span>) sarà
+<span class="remark">l’utente che ha aperto per primo la pagina HTML</span>.</p></li>
+</ul>
+</li>
+<li><p><span class="slidekp">chi crea la GUI?</span> Si modifica
+<a class="reference internal" href="#conwaylife25-in-java"><span class="std std-ref">ConwayLife25 in Java</span></a> o è  meglio lasciare il più possibile inalterato
+questo software già testato?</p>
+<ul class="simple">
+<li><p>meglio <span class="slide3">modificare meno possibile</span> ciò che già funziona.
+<a class="reference internal" href="#conwaylife25-in-java"><span class="std std-ref">ConwayLife25 in Java</span></a> è stato impostato in modo da  essere
+estendibile senza dover modificare la logica del gioco. In particolare, la parte di <strong>output</strong> della
+GUI potrebbe essere aggiornata introducendo una nuova classe che implementa la
+<a class="reference internal" href="#ioutdev-interface"><span class="std std-ref">IOutDev interface</span></a> in modo da visualizzare lo stato delle celle nella pagina <code class="docutils literal notranslate"><span class="pre">HTML</span></code>.</p></li>
+<li><p>vi sono <span class="slide3">framework</span> che permettono di realizzare pagine HTML che interagiscono con un server
+senza dover modificare il software già realizzato in Java. Uno di questi è  <a class="reference external" href="https://spring.io/projects/spring-boot">SpringBoot</a>.</p></li>
+</ul>
+</li>
+<li><p><span class="slidekp">come si aggiorna?</span> La pagina HTML deve essere aggiornata in modo automatico
+o l’utente deve premere un pulsante per vedere lo stato delle celle?</p>
+<ul class="simple">
+<li><p>la pagina HTML deve essere <span class="slide3">aggiornata in modo automatico</span> (per tutti gli utenti
+connessi) durante la evoluzione del gioco, senza che un utente debba fare nulla.
+Questo richiede l’uso di  <a class="reference external" href="https://it.wikipedia.org/wiki/WebSocket">WebSocket</a> che permettono di inviare messaggi dal server alla pagina HTML.</p></li>
+</ul>
+</li>
+<li><p><span class="slidekp">e se si ferma?</span> La pagina HTML potrebbe diventare vuota o rimanere stabile.
+Come evitare che il gico continui senza che l’utente se ne accorga?</p></li>
+<li><p><span class="slidekp">come si riduce il traffico di rete?</span></p>
+<ul class="simple">
+<li><p>il traffico di rete può essere ridotto inviando solo le informazioni necessarie per aggiornare la pagina HTML.
+Ad esempio, inviare <span class="slide3">solo le celle che cambiano stato</span> e non tutta la griglia.</p></li>
+<li><p>tuttavia, un utente che si collega mentre il gioco è in corso dovrebbe vedere lo stato attuale
+della griglia in modo corretto. Questo richiede che il server invii al nuovo utente tutta la griglia attuale.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+
+</div>
+
+<h2>Test plans</h2> 
+
+
+<h2>Project</h2> 
+<div class="remark">
+	
+</div>
+ 
+
+<h2>Testing</h2>
+ 
+
+<h2>Deployment</h2> 
+
+ 
+<h2>Maintenance</h2> 
+ 
+<!-- USEFUL
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+-->
+	      	
+<br/><br/> 	
+</div>  
+
+<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+By Lorenzo Zoccadelli email: lorenzo.zoccadelli@studio.unibo.it, 
+<!-- <img src="./img/mbot-S.jpg" alt="mbot" width="15%" height="15%"> -->
+<img src="./imgs/profile_img.jpeg" alt="emiglio" width="15%" height="15%"><br>
+GIT repo: https://github.com/Lorenzo-Zoccadelli/iss_lab_2025.git 
+</div> 
+</body>
+</html>
