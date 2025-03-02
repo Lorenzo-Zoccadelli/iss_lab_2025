@@ -22,7 +22,7 @@ private static ConwayInputMock cim;
 		System.out.println("setup");
     	//configureTheSystem
         life           = new Life( 3,3 );
-        cc   = new LifeController(life);   
+        cc   = new LifeController(life, 5);   
         //cim = new ConwayInputMock(cc,life);		
 	}
 	

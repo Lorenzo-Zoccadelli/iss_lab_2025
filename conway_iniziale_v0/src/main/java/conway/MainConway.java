@@ -10,7 +10,7 @@ public class MainConway  {
         Life life           =
                 new Life( 3,3 );
         LifeController cc   =
-                new LifeController(life);
+                new LifeController(life, 5);
         ConwayInputMock cim =
                 new ConwayInputMock(cc,life);
 

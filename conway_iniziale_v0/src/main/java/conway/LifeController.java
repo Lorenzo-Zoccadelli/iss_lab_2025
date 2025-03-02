@@ -8,9 +8,11 @@ public class LifeController {
     private int generationTime = 1000;
     private  Life life;
     private IOutDev outdev;
+    private int maxIterations;
 
-    public LifeController(Life game){  
+    public LifeController(Life game, int maxIterations){  
         this.life = game;
+        this.maxIterations=maxIterations;
         configureTheSystem();
      }
 
@@ -30,7 +32,7 @@ public class LifeController {
     
     protected void play() {
 		//while (true) {
-		for( int i=1;i<=5;i++){
+		for( int i=1;i<=maxIterations;i++){
 			try {
 				TimeUnit.MILLISECONDS.sleep(generationTime);
 				outdev.displaySection("Epoch "+i);
@@ -45,6 +47,10 @@ public class LifeController {
 
 	public void displayGrid() {
 		outdev.displayCells(life);
+	}
+	
+	public Grid getGrid() {
+		return life.getGrid();
 	}
 
 }
