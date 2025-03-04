@@ -300,6 +300,33 @@ alla pagina HTML tramite WebSocket</p></li>
 
 </div>
 
+
+<h2>Domande preliminari</h2>
+<div class="remark">
+	Cosa ddevo mettere in model, view e controller?
+	<ul>
+		<li>Model: classi Cell, Grid e Life</li>
+		<li>View: pagina html, che farà sia da input che da output</li>
+		<li>
+			Controller: un controller per il mio modello e uno per spring per farlo
+			comunicare e gestire l'interfaccia grafica
+		</li>
+	</ul>
+	<br>
+	Come modifico il LifeController?
+	<ul>
+		<li>Iterazioni illimitate (non limitate a 5)</li>
+		<li>Fermare le iterazioni quanddo arrivo alla conf stabile o empty</li>
+		<li>Reagire ai comandi degli utenti tramite l'input -> 2 controller?</li>
+	</ul>
+	<br>
+	Comunicazione: websocket o ajax?<br>
+	Già dopo mi serve fare in modo che il server mi mandi gli aggiornamenti -> forse meglio
+	fare direttamente tutto con websocket
+</div>
+
+
+
  
 
 <h2>Problem analysis</h2>
