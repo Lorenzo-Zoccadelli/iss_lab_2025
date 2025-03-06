@@ -37,7 +37,7 @@ public class Life {
         //CommUtils.outyellow("Life | initializeGrids done");
     }
 
-    protected void resetGrids() {
+    public void resetGrids() {
          createGrids();
     }
 

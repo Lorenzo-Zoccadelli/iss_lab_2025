@@ -17,6 +17,7 @@ java {
 
 repositories {
 	mavenCentral()
+	flatDir {   dirs '../unibolibs'    }
 }
 
 dependencies {
@@ -37,9 +38,9 @@ dependencies {
     implementation group: 'org.glassfish.tyrus.bundles', name: 'tyrus-standalone-client', version: '1.9'
 
     /* UNIBO *************************** */
-    //implementation name: 'uniboInterfaces'
-    //implementation name: '2p301'
-    //implementation name: 'unibo.basicomm23-1.0' 
+    implementation name: 'uniboInterfaces'
+    implementation name: '2p301'
+    implementation name: 'unibo.basicomm23-1.0' 
 }
 
 sourceSets {
