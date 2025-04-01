@@ -1900,3 +1900,55 @@ java.lang.IllegalStateException: The remote endpoint was in state [TEXT_PARTIAL_
 2025-03-22 12:39:48 [http-nio-7110-exec-1] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-03-22 12:39:48 [http-nio-7110-exec-1] - Initializing Servlet 'dispatcherServlet'
 2025-03-22 12:39:48 [http-nio-7110-exec-1] - Completed initialization in 1 ms
+2025-04-01 11:11:06 [restartedMain] - Starting ConwayguialoneApplication using Java 17.0.0.1 with PID 16900 (C:\Users\loriz\Documents\uni\magistrale\ingegnieria_sw\my_iss_lab_2025\conwayguialone\build\classes\java\main started by loriz in C:\Users\loriz\Documents\uni\magistrale\ingegnieria_sw\my_iss_lab_2025\conwayguialone)
+2025-04-01 11:11:06 [restartedMain] - No active profile set, falling back to 1 default profile: "default"
+2025-04-01 11:11:06 [restartedMain] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 11:11:06 [restartedMain] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 11:11:08 [restartedMain] - Tomcat initialized with port 7110 (http)
+2025-04-01 11:11:08 [restartedMain] - Initializing ProtocolHandler ["http-nio-7110"]
+2025-04-01 11:11:08 [restartedMain] - Starting service [Tomcat]
+2025-04-01 11:11:08 [restartedMain] - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-01 11:11:08 [restartedMain] - Initializing Spring embedded WebApplicationContext
+2025-04-01 11:11:08 [restartedMain] - Root WebApplicationContext: initialization completed in 2000 ms
+2025-04-01 11:11:09 [restartedMain] - Adding welcome page: class path resource [static/index.html]
+2025-04-01 11:11:09 [restartedMain] - LiveReload server is running on port 35729
+2025-04-01 11:11:09 [restartedMain] - Starting ProtocolHandler ["http-nio-7110"]
+2025-04-01 11:11:09 [restartedMain] - Tomcat started on port 7110 (http) with context path '/'
+2025-04-01 11:11:09 [restartedMain] - Started ConwayguialoneApplication in 3.698 seconds (process running for 4.563)
+2025-04-01 11:11:18 [http-nio-7110-exec-1] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-01 11:11:18 [http-nio-7110-exec-1] - Initializing Servlet 'dispatcherServlet'
+2025-04-01 11:11:18 [http-nio-7110-exec-1] - Completed initialization in 0 ms
+2025-04-01 11:14:44 [restartedMain] - Starting ConwayguialoneApplication using Java 17.0.0.1 with PID 1392 (C:\Users\loriz\Documents\uni\magistrale\ingegnieria_sw\my_iss_lab_2025\conwayguialone\build\classes\java\main started by loriz in C:\Users\loriz\Documents\uni\magistrale\ingegnieria_sw\my_iss_lab_2025\conwayguialone)
+2025-04-01 11:14:44 [restartedMain] - No active profile set, falling back to 1 default profile: "default"
+2025-04-01 11:14:45 [restartedMain] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 11:14:45 [restartedMain] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 11:14:47 [restartedMain] - Tomcat initialized with port 7110 (http)
+2025-04-01 11:14:47 [restartedMain] - Initializing ProtocolHandler ["http-nio-7110"]
+2025-04-01 11:14:47 [restartedMain] - Starting service [Tomcat]
+2025-04-01 11:14:47 [restartedMain] - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-01 11:14:47 [restartedMain] - Initializing Spring embedded WebApplicationContext
+2025-04-01 11:14:47 [restartedMain] - Root WebApplicationContext: initialization completed in 2781 ms
+2025-04-01 11:14:48 [restartedMain] - Adding welcome page: class path resource [static/index.html]
+2025-04-01 11:14:48 [restartedMain] - LiveReload server is running on port 35729
+2025-04-01 11:14:48 [restartedMain] - Starting ProtocolHandler ["http-nio-7110"]
+2025-04-01 11:14:48 [restartedMain] - Tomcat started on port 7110 (http) with context path '/'
+2025-04-01 11:14:48 [restartedMain] - Started ConwayguialoneApplication in 4.705 seconds (process running for 5.759)
+2025-04-01 11:21:38 [restartedMain] - Starting ConwayguialoneApplication using Java 17.0.0.1 with PID 19188 (C:\Users\loriz\Documents\uni\magistrale\ingegnieria_sw\my_iss_lab_2025\conwayguialone\build\classes\java\main started by loriz in C:\Users\loriz\Documents\uni\magistrale\ingegnieria_sw\my_iss_lab_2025\conwayguialone)
+2025-04-01 11:21:38 [restartedMain] - No active profile set, falling back to 1 default profile: "default"
+2025-04-01 11:21:38 [restartedMain] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-01 11:21:38 [restartedMain] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-01 11:21:40 [restartedMain] - Tomcat initialized with port 7110 (http)
+2025-04-01 11:21:40 [restartedMain] - Initializing ProtocolHandler ["http-nio-7110"]
+2025-04-01 11:21:40 [restartedMain] - Starting service [Tomcat]
+2025-04-01 11:21:40 [restartedMain] - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-01 11:21:40 [restartedMain] - Initializing Spring embedded WebApplicationContext
+2025-04-01 11:21:40 [restartedMain] - Root WebApplicationContext: initialization completed in 2157 ms
+2025-04-01 11:21:41 [restartedMain] - Adding welcome page: class path resource [static/index.html]
+2025-04-01 11:21:42 [restartedMain] - LiveReload server is running on port 35729
+2025-04-01 11:21:42 [restartedMain] - Starting ProtocolHandler ["http-nio-7110"]
+2025-04-01 11:21:42 [restartedMain] - Tomcat started on port 7110 (http) with context path '/'
+2025-04-01 11:21:42 [restartedMain] - Started ConwayguialoneApplication in 4.599 seconds (process running for 5.529)
+2025-04-01 11:21:45 [http-nio-7110-exec-1] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-01 11:21:45 [http-nio-7110-exec-1] - Initializing Servlet 'dispatcherServlet'
+2025-04-01 11:21:45 [http-nio-7110-exec-1] - Completed initialization in 1 ms
+2025-04-01 11:21:45 [http-nio-7110-exec-1] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
