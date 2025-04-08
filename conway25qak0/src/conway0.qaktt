@@ -14,4 +14,4 @@ import "main.java.conway.*"
  * Attore che 'ingloba' sia Life sia LifeController (versione MQTT)
  * ConwayLife opera come parte integrante dell'actor 
  * che non svolge alcuna funzione, se non quella di inglobare l'appl
- */ 
+ */

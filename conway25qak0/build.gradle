@@ -1,6 +1,6 @@
 /*
 ================================================================================
-build2025.gradle
+build2024.gradle
 GENERATED ONLY ONCE
 ================================================================================
 */
@@ -22,7 +22,7 @@ plugins {
 }
 
 version '1.0'
- 
+//java { sourceCompatibility = '11' }
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
@@ -34,9 +34,11 @@ kotlin {
 }
 
 repositories {
+    // Use Maven Central for resolving dependencies.
     mavenCentral()
     flatDir {   dirs '../unibolibs'  }
-    flatDir {   dirs 'applibs'  }
+    flatDir {	dirs 'applibs'		 }
+ 
 }
 
 /*
@@ -68,7 +70,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm
     implementation group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core-jvm', version: "$kotlinVersion"
 
-	//SOCKET.IO  
+	//SOCKET.IO (for WEnv)
     implementation group: 'javax.websocket', name: 'javax.websocket-api', version: '1.1'
     //javax.websocket api is only the specification
     implementation group: 'org.glassfish.tyrus.bundles', name: 'tyrus-standalone-client', version: '1.9'
@@ -122,13 +124,15 @@ dependencies {
     implementation name: '2p301'
 	implementation name: 'unibo.qakactor23-5.0'
     implementation name: 'unibo.basicomm23-1.0'
+    
+    implementation name: 'conway25JavaMqtt-1.0'    //ADDED
 
-	implementation name: 'conway25JavaMqtt-1.0'
+
     
     //USER libs for facades
     
 }
-	
+
 sourceSets {
     main.java.srcDirs += 'src'
     main.java.srcDirs += 'src/main/java'
@@ -137,7 +141,26 @@ sourceSets {
     test.java.srcDirs += 'src/main/java/test'		//test is specific
     test.java.srcDirs += 'src/main/kotlin/test'
 }
-  
+/*	
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test{
+        java {
+            srcDirs += ['src/test/java']
+        }    
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+ } 
+  */
 
 eclipse {
     classpath {
@@ -172,20 +195,20 @@ task dovesiamo {
 
 distributions {
     main {
-        distributionBaseName = 'conway25qak0'
+        distributionBaseName = 'conway0'
         contents { 
-             from './conway25qak0.pl'
+             from './conway0.pl'
              from './sysRules.pl'
              from './facadeConfig.json'
         }
     }
 } 
 
-task run0(type: JavaExec) {
+task runCallerTcp(type: JavaExec) {
     group = "Execution"
     description = "Run the main class with JavaExecTask"
     classpath = sourceSets.main.runtimeClasspath
-    main = 'it.unibo.ctxconway0.MainCtxconway0Kt'
+    main = 'main.java.CallerLifeActorTcp'
 }
 
 /*
