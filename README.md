@@ -11,4 +11,4 @@ Relazione Fase 1: [Fase1ISS25-ZoccadelliLorenzo.pdf](Fase1ISS25-ZoccadelliLorenz
 * [conway_mqtt](conway_mqtt): progetto con il core dell'applicazione riprogettato come agente indipendente che comunica attraverso protocollo mqtt
 * [conwayguialone](conwayguialone): Servizio SpringBoot che offre la GUI per intergasice via MQTT con [conway_mqtt](conway_mqtt)
 
-* [conway_qak_micro/userDocs/ZoccadelliLorenzo_conway_qak_micro.html](conwayqak): Analisi del problema di conway qak con attori e microservizi
+* [conwayqak](conway_qak_micro/userDocs/ZoccadelliLorenzo_conway_qak_micro.html): Analisi del problema di conway qak con attori e microservizi
