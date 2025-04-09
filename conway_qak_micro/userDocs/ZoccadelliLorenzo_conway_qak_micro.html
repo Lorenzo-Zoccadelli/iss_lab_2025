@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"crossorigin="anonymous"></script> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/templateISS.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/main.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/navbar.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/table.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/code.css">
+        <!-- <script type="text/javascript" src="./commons/resources/scripts/myScripts.js"></script> -->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+
+div.img-container{
+	display: flex;
+	flex-direction: column;
+	align-items: cenrter;
+	justify-content: center;
+	gap: 20px;
+
+	padding-left: 20%;
+	padding-right: 20%;
+
+}
+
+
+</style>
+    
+ 
+   
+</head>
+	
+		
+  
+
+
+   
+<title>Conway con microservizi</title></head>
+
+<body>
+<div id="top">
+<h1>LABORATORIO DI INGEGNERIA DEI SISTEMI SOFTWARE <font size="5"></font> </h1>
+</div>  
+
+<div class="body"> 
+<h2>Introduction</h2>
+<div class="remark">
+	Si vuole modificare il sistema che implementa il gioco "Conway game of life" in modo che possa essere riprodotto 
+	mediante l'utilizzo di microservizi distribuiti.
+</div>
+ 
+<h2>Requirements</h2>
+
+ 
+<div class="remark">
+I requisiti del funzionamento del gioco sono gli stessi già affrontati.<br>
+Ogni cella dovrà però essere gestita da un singolo nodo che attraverso l'utilizzo di un led, ne mostrerà lo stato.
+Sarà necessario quindi che siano presenti più nodi, ognuno rappresentante una cella della matrice, che messi insieme 
+mostreranno l'evoluzione del gioco.
+	
+</div>
+
+ 
+
+<h2>Requirement analysis</h2>
+<div class="remark">
+
+	<ul>
+		<li>Necessità di dividere tutte le celle tra i nodi</li>
+		<li>Necessità per ogni nodo di gestire il proprio led in modo che ne rappresenti lo stato</li>
+		<li>Necessità di impartire i comandi start/stop/clear e di inizializzare la griglia (non è specificato chi e tramite
+			quale tipo di interfaccia debba comandare queste azioni)</li>
+	</ul>
+	
+</div>
+
+ 
+
+<h2>Problem analysis</h2>
+<div class="remark">
+	Rispetto alla versione concentrata sono presenti problemi diversi che devono essere analizzati e affrontati con cura
+	
+	<h3>Rappresentazione della griglia</h3>
+	La griglia non è più un'entità a se stante, rappresentata semplicemente come una matrice in una singola memoria, 
+	ma si compone di tutti i nodi che fanno parte del sistema e che la compongono. Il concetto di griglia, anche se non 
+	modellato come oggetto, deve comunque essere presente in quanto parte fondamentale della logica del gioco.<br>
+	Nello specifico è fondamentale che siano gestite le seguenti informazioni:
+	<ul>
+		<li>Per ogni cella lo stato di quest'ultima</li>
+		<li>Per ogni cella la corretta informazione su chi siano i propri vicini</li>
+		<li>Per ogni cella, a ogni istante, è necessario conoscere lo stato di tutti i vicini</li>
+	</ul>
+	
+	Si possono quindi aprire due possibili strade:
+	<h4>Memorizzazione dello stato in modo concentrato</h4>
+	Questo è il caso più semplice in cui si sceglie un'entità centrale che mantiene lo stato di tutta la griglia.
+	Ciò si traduce banalmente nella modifica del dispositivo di output dei client che si dovranno interessare di una sola
+	cella invece che di tutta la griglia. Questa soluzione è semplice da realizzare partendo dall'implementazione già presente,
+	ma probabilemnte non gode delle caratteristiche di indipendenza dei nodi, in quanto questi risulterebbero semplicemente 
+	più client parziali di un unico server/entità centrale.
+	<br>
+	
+	<h4>Memorizzazione dello stato in modo distribuito</h4>
+	Per garantire una migliore dinamicità, flessibilità e indipendenza dei singoli nodi è possibile distribuire lo stato della 
+	griglia su ognuno di essi. In tal caso ognuno di essi dovrà mantenere il proprio stato e conoscere quali sono i nodi vicini:
+	sia la loro posizione sulla griglia, sia il loro indirizzo e come poterci comunicare. Ciò infatti implica che sarà necessario
+	che ogni nodo comunichi con i suoi vicini per poter conoscere il loro stato ed essere in grado di sapere come modificare il
+	proprio.
+	<br>
+	
+	<h3>Associazione nodo-cella</h3>
+	In ogni caso sarà necessario fare in modo che a ogni nodo sia associata univocamente una cella della griglia e che ognuno
+	conosca i propri vicini. La soluzione più semplice ma nettamente meno flessibile è quella di definire in modo statico quale 
+	cella associare a ciascun nodo. In questo modo è anche possibile indicare gli indirizzi di collegamento alle altre celle 
+	vicine.
+	<br>
+	Strategia più dinamica è invece quella in cui i nodi possano richiedere autonomamente e in modo dinamico di poter essere 
+	associati a una cella. In questo caso una semplice soluzione potrebbe prevedere la presenza di un'entità centrale che 
+	mantiene in memoria tutte le associazioni nodo-cella. Questa entità dovrà permettere ai nodi di richiedere l'associazione
+	a una cella che verrà successivamente comunicata insieme ai riferimenti dei vicini e poter mandare gli aggiornamenti
+	sui vicini ai nodi in caso di modifiche.
+	<br>
+	Si potrebbe eventualmente pensare anche a una soluzione più decentralizzata in cui non è presente un'entità centrale,
+	nella quale i nodi si coordinano tra di loro per definire le associazioni nodo-cella. Quest'ultima risulterebbe però più complicata
+	in quanto necessiterebbe di un protocollo specifico di comunicazione e coordinazione tra i nodi. Nello specifico, ogni volta
+	si aggiungerà un nuovo nodo, esso dovrà comunicare con tutti gli altri per conoscere le celle già prese, sceglierne una nuova
+	e successivamente informare tutti gli altri della sua scelta (tenendo in considerazione anche la possibilità di eventuali 
+	corse critiche, le quali andrebbero gestiti con algoritmi di sincronizzazione distribuiti)
+	<br>
+		
+	<h3>Coordinazione dell'aggiornamento della griglia</h3>
+	Un altro problema è posto dalla necessità di coordinare l'aggiornamento di tutte le celle. Nello specifico è necessario
+	che tutti i nodi passino all'epoca successiva contemporaneamente e che ognuno di essi sia sicuro di leggere lo stato corretto
+	(quello dell'epoca corrente) dai vicini. Perciò saranno necessarie due fasi nell'aggiornamento della griglia: una prima fase
+	di calcolo, in cui tutte le celle calcolano il proprio stato futuro a partire da quello corrente dei vicini, e una seconda
+	fase di aggiornamento in cui tutti i nodi, quando tutti avranno calcolato il proprio stato futuro correttamente, aggiorneranno
+	il proprio stato in base al nuovo valore. 
+	<br>
+	Anche per questo punto è necessario un protocollo di comunicazione tra nodi contenenti celle per conoscere lo stato dei vicini
+	e poter calcolare il proprio stato futuro.
+	<br>
+	Inoltre per la gestione dei tempi e frequenza di aggiornamento della griglia, ancora una volta è possibile pensare una soluzione
+	più semplice che prevede un'entità centrale e una più complessa ma distribuita e quindi più flessibile e scalabile.
+	Nel primo caso sarà necessario un server che a intervalli regolari (tempo tra le epoche) coordini tutti i nodi gestendo le due 
+	fasi appena citate. Nel secondo caso è necessaria invece un'attenta gestione dei tempi e della coordinazione tra i vari nodi.
+	Si pone necessaria una più intensa comunicazione tra i nodi e potrebbe essere opportuna l'introduzione di un algoritmo
+	distribuito di gestione del tempo reale, in quanto non è detto che i clock e gli orari di tutti i nodi siano tra loro sincronizzati.
+	<br>
+	Nel caso del coordinatore centrale, tale ruolo può essere svolto anche da uno dei nodi scelto, eventualmente, tramite un
+	algoritmo di elezione
+	<br>
+	
+	<h3>Gesione dei comandi</h3>
+	Sarà necessario prevedere un'interfaccia (i reuqisiti non specificano né di quale tipo né se H2M o M2M) che possa
+	permettere di richiedere l'esecuzione dei comandi start/stop/clear e l'inizializzazione della griglia. 
+	Ancora una volta in caso si preveda un server coordinatore centrale, questo potrebbe comunicare i comandi a tutti i nodi
+	attivi, mentre in caso si voglia restare il più possibile su una soluzione distribuita, sarà necessario che i nodi si
+	coordinino comunicando tra di loro il comando richiesto. In entrambi i casi sarà necessario considerare una corretta
+	sincronizzazione tra le celle in modo da evitare di entrare in stati inconsistenti.	
+	<br>
+	
+	<h3>Problemi di interruzione del servizio di un nodo</h3>
+	In un sistema distribuito si pone anche la necessità di tenere in considerazione anche la possibilità di malfunzionamenti
+	indipendenti dei nodi. In questo caso potrebbero risultare delle celle mancanti nella griglia il che porterebbe a
+	un comportamento del sistema differente da quello atteso. Sarà necessario quindi tenere in considerazione questo aspetto
+	prevedendo strategie di replicazione o sostituzione dei nodi.
+	<br>
+	
+	
+</div>
+
+<h2>Test plans</h2> 
+
+
+<h2>Project</h2> 
+<div class="remark">
+	
+</div>
+ 
+
+<h2>Testing</h2> 
+ 
+
+<h2>Deployment</h2> 
+
+ 
+<h2>Maintenance</h2> 
+ 
+<!-- USEFUL
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+-->
+	      	
+<br/><br/> 	
+</div>  
+
+<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+By Lorenzo Zoccadelli email: lorenzo.zoccadelli@studio.unibo.it, 
+<!-- <img src="./img/mbot-S.jpg" alt="mbot" width="15%" height="15%"> -->
+<img src="./imgs/profile_img.jpeg" alt="emiglio" width="15%" height="15%"><br>
+GIT repo: https://github.com/Lorenzo-Zoccadelli/iss_lab_2025.git 
+</div> 
+</body>
+</html>

@@ -1952,3 +1952,7 @@ java.lang.IllegalStateException: The remote endpoint was in state [TEXT_PARTIAL_
 2025-04-01 11:21:45 [http-nio-7110-exec-1] - Initializing Servlet 'dispatcherServlet'
 2025-04-01 11:21:45 [http-nio-7110-exec-1] - Completed initialization in 1 ms
 2025-04-01 11:21:45 [http-nio-7110-exec-1] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-04-09 16:46:26 [restartedMain] - Starting ConwayguialoneApplication using Java 17.0.1 with PID 3436 (D:\uni\iss\personal_repo\conwayguialone\bin\main started by loriz in D:\uni\iss\personal_repo\conwayguialone)
+2025-04-09 16:46:26 [restartedMain] - No active profile set, falling back to 1 default profile: "default"
+2025-04-09 16:46:26 [restartedMain] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-09 16:46:26 [restartedMain] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
