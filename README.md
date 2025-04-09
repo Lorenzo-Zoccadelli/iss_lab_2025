@@ -10,3 +10,5 @@ Relazione Fase 1: [Fase1ISS25-ZoccadelliLorenzo.pdf](Fase1ISS25-ZoccadelliLorenz
 * [conway_gui_ws](conway_gui_ws): progetto java basato su Spring Boot che partendo dal core realizzato in [conway_cli](conway_cli) realizza la stessa applicazione integrandola con una gui in JavaScript che si basa sull'utilizzo di websocket. Il progetto include anche un esempio di client che pemrette di eseguire l'applicazione mediante un approccio machine-to-machine
 * [conway_mqtt](conway_mqtt): progetto con il core dell'applicazione riprogettato come agente indipendente che comunica attraverso protocollo mqtt
 * [conwayguialone](conwayguialone): Servizio SpringBoot che offre la GUI per intergasice via MQTT con [conway_mqtt](conway_mqtt)
+
+* [conway_qak_micro/userDocs/ZoccadelliLorenzo_conway_qak_micro.html](conwayqak): Analisi del problema di conway qak con attori e microservizi
