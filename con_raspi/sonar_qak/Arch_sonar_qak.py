@@ -27,6 +27,4 @@ with Diagram('sonar_qakArch', show=False, outformat='png', graph_attr=graphattr)
 ### see https://renenyffenegger.ch/notes/tools/Graphviz/attributes/label/HTML-like/index
      with Cluster('ctx_sonar', graph_attr=nodeattr):
           datacleaner=Custom('datacleaner','./qakicons/symActorWithobjSmall.png')
-          sonar=Custom('sonar','./qakicons/symActorWithobjSmall.png')
-     sys >> Edge( label='sonardata', **evattr, decorate='true', fontcolor='darkgreen') >> sonar
 diag

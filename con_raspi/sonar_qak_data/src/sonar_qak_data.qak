@@ -1,0 +1,118 @@
+System sonarqakdata
+
+mqttBroker "192.168.1.193" :  1883 eventTopic "sonar_qak/events"
+
+Dispatch sonarstart : sonarstart(X)
+Dispatch sonarstop : sonarstop(X)
+
+Event sonardata : distance(D)
+Event cleaneddata : distance(D)
+
+Context ctxsonar  ip [host="localhost" port=8080] 
+
+QActor datacleaner context ctxsonar {
+	
+	import "java.io.*"
+	
+	[#
+		var firstInit = true
+		var p: Process = Runtime.getRuntime().exec(".\\sonar_sim_dev.bat") //DA CAMBIARE
+		var reader: BufferedReader = BufferedReader(  InputStreamReader(p.getInputStream() ))
+	#]
+	
+	State s0 initial{
+		println("datacleaner | starts") color magenta
+		[#
+			if(firstInit){
+				firstInit = false
+			}
+			else{
+				p = Runtime.getRuntime().exec(".\\sonar_sim_dev.bat") //DA CAMBIARE
+				reader = BufferedReader(  InputStreamReader(p.getInputStream() ))
+			}
+			
+		#]
+		
+		
+	}
+	Goto read
+	
+	State read{
+		[#
+			var data = reader.readLine()
+			//println("sonarHCSR04Support data = $data"   )
+			if( data != null ){
+				try{ 
+					val v = data.toInt()
+					if(v<=150){
+						val m1 = "distance(${v})"
+						val event = MsgUtil.buildEvent("datacleaner", "sonardata", m1)
+						//println(event)
+						emitLocalStreamEvent( event )	
+					}		
+					
+				}catch(e: Exception){
+					println("sonarHCSR04Support doRead ERROR: $e "   )
+				}
+			}	
+		#]
+		delay 1000
+	} 
+	Goto read
+	//Transition t0 
+		//whenTime 1000 -> read 
+		//whenMsg sonarstop -> stopped
+		
+	State stopped {
+		[#
+			reader.close()
+			p.destroy()
+		#]
+	}
+	Transition t1
+		whenMsg sonarstart -> s0
+	 
+} 
+
+
+
+QActor sonarsender context ctxsonar{
+	
+	State s0 initial{
+		println("sonar | starts") color magenta
+		subscribeTo datacleaner for sonardata
+	}
+	Transition t0
+		whenEvent sonardata -> work
+	
+	
+	State work{
+		onMsg(sonardata : distance(D)){
+			emit cleaneddata : distance($payloadArg(0))
+		}
+		
+	}
+	Transition t0
+		whenEvent sonardata -> work
+		
+}
+
+QActor sonarreciever context ctxsonar{
+	
+	State s0 initial{
+		println("sonarreciever | starts") color magenta
+		subscribeTo sonarsender for cleaneddata
+	}
+	Transition t0
+		whenEvent cleaneddata -> work
+	
+	
+	State work{
+		onMsg(sonardata : distance(D)){
+			println("${payloadArg(0)}") color magenta
+		}
+	}
+	Transition t0
+		whenEvent cleaneddata -> work
+		
+}

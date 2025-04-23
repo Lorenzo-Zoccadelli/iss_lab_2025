@@ -10,11 +10,11 @@ Context ctx_sonar  ip [host="localhost" port=8080]
 
 QActor datacleaner context ctx_sonar {
 	[#
-		val p  = Runtime.getRuntime().exec("./SonarAlone")
+		val p  = Runtime.getRuntime().exec(".\sonar_sim_dev.bat") //DA CAMBIARE
 		val reader = BufferedReader(  InputStreamReader(p.getInputStream() ))
 	#]
 	
-	State init initial {
+	State init initial { 
 		
 	}
 	Goto read
@@ -38,9 +38,10 @@ QActor datacleaner context ctx_sonar {
 			}	
 		#]
 	}
-	Transition t0
-		whenTime 10 -> read 
-		whenMsg sonarstop -> stopped
+	Goto read
+	//Transition t0
+		//whenTime 10 -> read 
+		//whenMsg sonarstop -> stopped
 		
 	State stopped {
 		
@@ -50,7 +51,7 @@ QActor datacleaner context ctx_sonar {
 	
 }
 
-
+/* 
 QActor sonar context ctx_sonar {
 	
 	State work initial {
@@ -65,5 +66,5 @@ QActor sonar context ctx_sonar {
 	Goto work
 
 }
-
+*/
 

@@ -20,8 +20,7 @@ import org.json.simple.JSONObject
 
 //User imports JAN2024
 
-class Ledobserver ( name: String, scope: CoroutineScope, isconfined: Boolean=false, isdynamic: Boolean=false ) : 
-          ActorBasicFsm( name, scope, confined=isconfined, dynamically=isdynamic ){
+class Ledobserver ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) : ActorBasicFsm( name, scope, confined=isconfined ){
 
 	override fun getInitialState() : String{
 		return "s0"

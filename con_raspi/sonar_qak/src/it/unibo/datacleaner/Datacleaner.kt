@@ -20,8 +20,7 @@ import org.json.simple.JSONObject
 
 //User imports JAN2024
 
-class Datacleaner ( name: String, scope: CoroutineScope, isconfined: Boolean=false, isdynamic: Boolean=false ) : 
-          ActorBasicFsm( name, scope, confined=isconfined, dynamically=isdynamic ){
+class Datacleaner ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) : ActorBasicFsm( name, scope, confined=isconfined ){
 
 	override fun getInitialState() : String{
 		return "init"
@@ -30,7 +29,7 @@ class Datacleaner ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 		//val interruptedStateTransitions = mutableListOf<Transition>()
 		//IF actor.withobj !== null val actor.withobj.name» = actor.withobj.method»ENDIF
 		
-				val p  = Runtime.getRuntime().exec("./SonarAlone")
+				val p  = Runtime.getRuntime().exec(".\sonar_sim_dev.bat") //DA CAMBIARE
 				val reader = BufferedReader(  InputStreamReader(p.getInputStream() ))
 		return { //this:ActionBasciFsm
 				state("init") { //this:State
@@ -64,11 +63,8 @@ class Datacleaner ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
-				 	 		stateTimer = TimerActor("timer_read", 
-				 	 					  scope, context!!, "local_tout_"+name+"_read", 10.toLong() )  //OCT2023
 					}	 	 
-					 transition(edgeName="t00",targetState="read",cond=whenTimeout("local_tout_"+name+"_read"))   
-					transition(edgeName="t01",targetState="stopped",cond=whenDispatch("sonarstop"))
+					 transition( edgeName="goto",targetState="read", cond=doswitch() )
 				}	 
 				state("stopped") { //this:State
 					action { //it:State
@@ -77,7 +73,7 @@ class Datacleaner ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t12",targetState="read",cond=whenDispatch("sonarstart"))
+					 transition(edgeName="t10",targetState="read",cond=whenDispatch("sonarstart"))
 				}	 
 			}
 		}
