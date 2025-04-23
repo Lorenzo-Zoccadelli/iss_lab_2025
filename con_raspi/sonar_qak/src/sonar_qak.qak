@@ -1,0 +1,69 @@
+System sonar_qak
+mqttBroker "192.168.1.193" :  1883 eventTopic "sonar_qak/events"
+
+Dispatch sonarstart : sonarstart(X)
+Dispatch sonarstop : sonarstop(X)
+
+Event sonardata : distance(D)
+
+Context ctx_sonar  ip [host="localhost" port=8080] 
+
+QActor datacleaner context ctx_sonar {
+	[#
+		val p  = Runtime.getRuntime().exec("./SonarAlone")
+		val reader = BufferedReader(  InputStreamReader(p.getInputStream() ))
+	#]
+	
+	State init initial {
+		
+	}
+	Goto read
+	
+	State read {
+		[#
+			var data = reader.readLine()
+			println("sonarHCSR04Support data = $data"   )
+			if( data != null ){
+				try{ 
+					val v = data.toInt()
+					if(v<=150){
+						val m1 = "distance( ${v*2} )"
+						val event = MsgUtil.buildEvent( "sonarHCSR04Support","sonar",m1)
+						emitLocalStreamEvent( event )	
+					}		
+					
+				}catch(e: Exception){
+					println("sonarHCSR04Support doRead ERROR: $e "   )
+				}
+			}	
+		#]
+	}
+	Transition t0
+		whenTime 10 -> read 
+		whenMsg sonarstop -> stopped
+		
+	State stopped {
+		
+	}
+	Transition t1
+		whenMsg sonarstart -> read
+	
+}
+
+
+QActor sonar context ctx_sonar {
+	
+	State work initial {
+		
+	}
+	Transition t0
+		whenEvent sonardata -> handlesonardata
+
+	State handlesonardata {
+		printCurrentMessage color magenta
+	}
+	Goto work
+
+}
+
+
