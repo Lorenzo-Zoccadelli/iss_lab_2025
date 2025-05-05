@@ -12,3 +12,7 @@ Relazione Fase 1: [Fase1ISS25-ZoccadelliLorenzo.pdf](Fase1ISS25-ZoccadelliLorenz
 * [conwayguialone](conwayguialone): Servizio SpringBoot che offre la GUI per intergasice via MQTT con [conway_mqtt](conway_mqtt)
 
 * [conwayqak](conway_qak_micro/userDocs/ZoccadelliLorenzo_conway_qak_micro.html): Analisi del problema di conway qak con attori e microservizi
+
+<h2 id="Fase2">Fase 1</h2>
+
+Relazione Fase 2: [Fase2ISS25-ZoccadelliLorenzo.pdf](Fase2ISS25-ZoccadelliLorenzo.pdf)
