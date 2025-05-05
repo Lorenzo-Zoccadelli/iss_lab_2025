@@ -39,20 +39,22 @@ class Sonarsender ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t01",targetState="work",cond=whenEvent("sonardata"))
+					 transition(edgeName="t03",targetState="work",cond=whenEvent("sonardata"))
 				}	 
 				state("work") { //this:State
 					action { //it:State
 						if( checkMsgContent( Term.createTerm("distance(D)"), Term.createTerm("distance(D)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								emit("cleaneddata", "distance(${payloadArg(0)})" ) 
+								if(  Integer.parseInt(payloadArg(0)) <= 150  
+								 ){emit("cleaneddata", "distance(${payloadArg(0)})" ) 
+								}
 						}
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t02",targetState="work",cond=whenEvent("sonardata"))
+					 transition(edgeName="t04",targetState="work",cond=whenEvent("sonardata"))
 				}	 
 			}
 		}

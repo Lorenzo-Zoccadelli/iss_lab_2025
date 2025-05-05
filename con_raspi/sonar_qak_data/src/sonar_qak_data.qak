@@ -1,6 +1,7 @@
 System sonarqakdata
 
-mqttBroker "192.168.1.193" :  1883 eventTopic "sonar_qak/events"
+//mqttBroker "192.168.1.193" :  1883 eventTopic "sonar_qak/events"
+mqttBroker "localhost" :  1883 eventTopic "sonar_qak/events"
 
 Dispatch sonarstart : sonarstart(X)
 Dispatch sonarstop : sonarstop(X)
@@ -38,30 +39,31 @@ QActor datacleaner context ctxsonar {
 	Goto read
 	
 	State read{
+		//delay 1000
 		[#
 			var data = reader.readLine()
 			//println("sonarHCSR04Support data = $data"   )
 			if( data != null ){
 				try{ 
 					val v = data.toInt()
-					if(v<=150){
-						val m1 = "distance(${v})"
-						val event = MsgUtil.buildEvent("datacleaner", "sonardata", m1)
-						//println(event)
-						emitLocalStreamEvent( event )	
-					}		
+
+					val m1 = "distance(${v})"
+					val event = MsgUtil.buildEvent("datacleaner", "sonardata", m1)
+					//println(event)
+					emitLocalStreamEvent( event )	
+					
 					
 				}catch(e: Exception){
 					println("sonarHCSR04Support doRead ERROR: $e "   )
 				}
 			}	
 		#]
-		delay 1000
+		//delay 1000
 	} 
-	Goto read
-	//Transition t0 
-		//whenTime 1000 -> read 
-		//whenMsg sonarstop -> stopped
+	//Goto read
+	Transition t0 
+		whenTime 1000 -> read 
+		whenMsg sonarstop -> stopped
 		
 	State stopped {
 		[#
@@ -73,6 +75,8 @@ QActor datacleaner context ctxsonar {
 		whenMsg sonarstart -> s0
 	 
 } 
+
+
 
 
 
@@ -88,7 +92,10 @@ QActor sonarsender context ctxsonar{
 	
 	State work{
 		onMsg(sonardata : distance(D)){
-			emit cleaneddata : distance($payloadArg(0))
+			if [# Integer.parseInt(payloadArg(0)) <= 150 #]{
+				emit cleaneddata : distance($payloadArg(0))
+			}
+			
 		}
 		
 	}
@@ -96,6 +103,10 @@ QActor sonarsender context ctxsonar{
 		whenEvent sonardata -> work
 		
 }
+
+
+
+
 
 QActor sonarreciever context ctxsonar{
 	
@@ -109,6 +120,7 @@ QActor sonarreciever context ctxsonar{
 	
 	State work{
 		onMsg(sonardata : distance(D)){
+			
 			println("${payloadArg(0)}") color magenta
 		}
 	}
@@ -116,3 +128,4 @@ QActor sonarreciever context ctxsonar{
 		whenEvent cleaneddata -> work
 		
 }
+

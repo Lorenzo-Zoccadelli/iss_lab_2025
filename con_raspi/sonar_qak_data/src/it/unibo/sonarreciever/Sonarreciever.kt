@@ -39,7 +39,7 @@ class Sonarreciever ( name: String, scope: CoroutineScope, isconfined: Boolean=f
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t03",targetState="work",cond=whenEvent("cleaneddata"))
+					 transition(edgeName="t05",targetState="work",cond=whenEvent("cleaneddata"))
 				}	 
 				state("work") { //this:State
 					action { //it:State
@@ -52,7 +52,7 @@ class Sonarreciever ( name: String, scope: CoroutineScope, isconfined: Boolean=f
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t04",targetState="work",cond=whenEvent("cleaneddata"))
+					 transition(edgeName="t06",targetState="work",cond=whenEvent("cleaneddata"))
 				}	 
 			}
 		}

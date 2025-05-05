@@ -62,24 +62,26 @@ class Datacleaner ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 									if( data != null ){
 										try{ 
 											val v = data.toInt()
-											if(v<=150){
-												val m1 = "distance(${v})"
-												val event = MsgUtil.buildEvent("datacleaner", "sonardata", m1)
-												//println(event)
-												emitLocalStreamEvent( event )	
-											}		
+						
+											val m1 = "distance(${v})"
+											val event = MsgUtil.buildEvent("datacleaner", "sonardata", m1)
+											//println(event)
+											emitLocalStreamEvent( event )	
+											
 											
 										}catch(e: Exception){
 											println("sonarHCSR04Support doRead ERROR: $e "   )
 										}
 									}	
-						delay(1000) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
+				 	 		stateTimer = TimerActor("timer_read", 
+				 	 					  scope, context!!, "local_tout_"+name+"_read", 1000.toLong() )  //OCT2023
 					}	 	 
-					 transition( edgeName="goto",targetState="read", cond=doswitch() )
+					 transition(edgeName="t00",targetState="read",cond=whenTimeout("local_tout_"+name+"_read"))   
+					transition(edgeName="t01",targetState="stopped",cond=whenDispatch("sonarstop"))
 				}	 
 				state("stopped") { //this:State
 					action { //it:State
@@ -91,7 +93,7 @@ class Datacleaner ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t10",targetState="s0",cond=whenDispatch("sonarstart"))
+					 transition(edgeName="t12",targetState="s0",cond=whenDispatch("sonarstart"))
 				}	 
 			}
 		}

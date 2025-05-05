@@ -1,7 +1,7 @@
 %====================================================================================
 % sonarqakdata description   
 %====================================================================================
-mqttBroker("192.168.1.193", "1883", "sonar_qak/events").
+mqttBroker("localhost", "1883", "sonar_qak/events").
 dispatch( sonarstart, sonarstart(X) ).
 dispatch( sonarstop, sonarstop(X) ).
 event( sonardata, distance(D) ).
